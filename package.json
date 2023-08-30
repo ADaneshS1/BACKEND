@@ -11,5 +11,8 @@
   "description": "",
   "devDependencies": {
     "jest": "^29.6.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
