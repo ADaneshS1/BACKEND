@@ -12,7 +12,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req,res) => {
-    res.send("Post data");
+    let name = req.body.name
+    res.send("Oyy " + name);
 });
 
 app.put('/', (req,res) => {
