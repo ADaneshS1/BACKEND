@@ -7,6 +7,8 @@ const app = express();
     - res = singkatan dari response. Yang isinya kita kirim ke client. Contoh seperti data, json, html, dan codeHTTP (default:200)
 */
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.send("Hello world");
 });
