@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 // Untuk running
 app.listen(3000, () => {
-    console.log("Halo cuyy, Server sudah jalan di localhost:3000")
+    console.log("Halo cuyy, Server sudah jalan di https://localhost:3000")
 })
 
-// Untuk menjalankan tulis node app.js di terminal. Untuk cancel tekan Ctr + c.
+// Untuk menjalankan ketik node app.js di terminal. Untuk cancel tekan Ctr + c.
