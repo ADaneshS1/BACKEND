@@ -9,7 +9,19 @@ const app = express();
 
 app.get('/', (req, res) => {
     res.send("Hello world");
-})
+});
+
+app.post('/', (req,res) => {
+    res.send("Post data");
+});
+
+app.put('/', (req,res) => {
+    res.send("Update data");
+});
+
+app.delete('/', (req,res) => {
+    res.send("Delete data");
+});
 
 // Untuk running
 app.listen(3000, () => {
