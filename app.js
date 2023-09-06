@@ -1,4 +1,8 @@
-const express = require('express')
+const express = require('express');
+const { postDataUserHandler } = require('./handlres/post-data-user-handler');
+const { getDataUserHandler } = require('./handlres/get-data-user-handler');
+const { putDataUserHandler } = require('./handlres/put-data-user-handler');
+const { delDataUserHandler } = require('./handlres/del-data-user-handler');
 const app = express();
 
 // Example
@@ -9,22 +13,13 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send("Hello world");
-});
+app.get('/', getDataUserHandler);
 
-app.post('/', (req,res) => {
-    let name = req.body.name
-    res.send("Oyy " + name);
-});
+app.post('/', postDataUserHandler);
 
-app.put('/', (req,res) => {
-    res.send("Update data");
-});
+app.put('/', putDataUserHandler);
 
-app.delete('/', (req,res) => {
-    res.send("Delete data");
-});
+app.delete('/', delDataUserHandler);
 
 // Untuk running
 app.listen(3000, () => {
