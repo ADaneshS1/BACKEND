@@ -1,5 +1,9 @@
+const { removeData } = require("../gateways/memory-storage-gateway");
+
 const delDataUserHandler = (req,res) => {
-    res.send("Delete data");
+    const id = req.body.id;
+    removeData(id)
+    res.send({error:false, message:"Succes"});
 }
 
 module.exports = {delDataUserHandler}

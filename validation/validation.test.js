@@ -59,7 +59,7 @@ describe('test ageValid', ()=> {
     test('should succes', ()=> {
         let result = ageValid(16);
         expect(result).toEqual(
-            {error:false, message:'Confirm', data:16}
+            {error:false, message:'Nice Confirm', data:16}
         );
     });
 

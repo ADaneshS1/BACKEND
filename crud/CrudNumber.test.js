@@ -4,7 +4,7 @@ const {
     readByIdx,
     updateData,
     deleteData,
-} = require("./CrudNumbers");
+} = require("./CrudNumber");
 
 describe("test crud numbers", () => {
     test("when create should succes", () => {

@@ -22,8 +22,10 @@ app.put('/', putDataUserHandler);
 app.delete('/', delDataUserHandler);
 
 // Untuk running
-app.listen(3000, () => {
+const server = app.listen(3000, () => {
     console.log("Halo cuyy, Server sudah jalan di https://localhost:3000")
-})
+});
+
+module.exports = server;
 
 // Untuk menjalankan ketik node app.js di terminal. Untuk cancel tekan Ctr + c.
