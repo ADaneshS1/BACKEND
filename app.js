@@ -22,8 +22,10 @@ app.put('/', putDataUserHandler);
 app.delete('/', delDataUserHandler);
 
 // Untuk running
-const server = app.listen(3000, () => {
-    console.log("Halo cuyy, Server sudah jalan di https://localhost:3000")
+const port = 3001;
+
+const server = app.listen(port, () => {
+    console.log("Halo cuyy, Server sudah jalan di https://localhost:" + port)
 });
 
 module.exports = server;
