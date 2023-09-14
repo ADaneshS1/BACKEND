@@ -9,7 +9,27 @@
 
 <body class="bg-blue-400 p-4">
   <div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
-    <h1 class="text-2xl font-semibold mb-4">List Data</h1>
+    <h1 class="text-2xl font-semibold mb-4 text-center">List Data</h1>
+
+    <div class="flex justify-evenly">
+      <a href="/create">Create</a>
+      <a href="/edit">Edit</a>
+      <a href="/delete">Delete</a>
+    </div>
+
+    <table class="w-full border border-collapse mt-4">
+
+      <thead>
+        <tr>
+          <td class="border border-slate-600 px-5">Id</td>
+          <td class="border border-slate-600 px-5">Name</td>
+          <td class="border border-slate-600 px-5">Age</td>
+        </tr>
+      </thead>
+
+      <tbody id="list-data"></tbody>
+
+    </table>
 
   </div>
   <script src="script.js"></script>

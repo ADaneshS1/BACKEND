@@ -27,7 +27,7 @@ app.delete('/api/user', delDataUserHandler);
 const port = 3001;
 
 const server = app.listen(port, () => {
-    console.log("Halo cuyy, Server sudah jalan di https://localhost:" + port)
+    console.log("Halo cuyy, Server sudah jalan di http://localhost:" + port)
 });
 
 module.exports = server;
