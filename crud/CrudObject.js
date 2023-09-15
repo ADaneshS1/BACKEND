@@ -12,12 +12,12 @@ const findData = (bank, id) => {
     return bank.find((value) => value.id === id);
 };
 
-const updateData = (bank, id, value) => {
+const updateData = (bank, id, value,num) => {
     if(typeof id === 'string') {
         id = parseInt(id);
     }
-    const index = bank.findIndex((value) => value.id === id);
-    bank[index] = { ...bank[index], id, name: value };
+    const index = bank.findIndex((value,num) => value.id || num.id === id);
+    bank[index] = { ...bank[index], ...id, name: value, age:num};
     return bank;
 };
 

@@ -15,8 +15,8 @@ const getDataByName = (name) => {
     return findByname(dataMemory, name)
 }
 
-const editDataName = (id,name) => {
-    dataMemory = updateData(dataMemory, id, name)
+const editDataName = (id,name,age) => {
+    dataMemory = updateData(dataMemory, id, name, age)
     return dataMemory;
 }
 

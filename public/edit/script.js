@@ -23,7 +23,7 @@ window.onload = () => {
           alert('Cek kondisi anda atau cek data yang telah dimasukkan');
           return;
         }
-        const resData = await res.json();
+        const resData = await res.json();    
 
         if(resData.error) {
           alert('Cek data yang dimasukkan');
