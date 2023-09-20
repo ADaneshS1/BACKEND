@@ -15,7 +15,10 @@ window.onload = () => {
         });
         
         const resData = await res.json();
-
+        if (resData.error) {
+          alert(resData.message);
+          return;
+        }
         alert('Berhasil dihapus');
         window.open('/', '_self');
         
