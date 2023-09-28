@@ -28,7 +28,7 @@ const findOneById = async (collection, id) => {
 
 const findOneWithQuerySpecific = async (collection) => {
     try {
-        const dataRes = await collection.find({age: {$gt: 16}});
+        const dataRes = await collection.findOne({age: {$gt: 16}});
         return dataRes;
     } catch(err) {
         console.error(`Somethin went wrong trying to insert the new documents: ${err}\n`);
@@ -38,12 +38,6 @@ const findOneWithQuerySpecific = async (collection) => {
 const isIdExist = async (collection, id) => {
     try {
         const dataRes = await collection.findOne({id});//id:id. 
-        // if(dataRes) {
-        //    hasil = true;
-        // } else {
-        //     hasil = false;
-        // }
-        // return hasil;
         return !!dataRes;
     } catch(err) {
         console.error('There is error: ', err);

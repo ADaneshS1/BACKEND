@@ -5,32 +5,10 @@ const { findMany, findOne, findOneById, findOneWithQuerySpecific,isIdExist } = r
 const { deleteById } = require('./operations/ExampleDelete');
 const { updateById } = require('./operations/ExampleUpdate');
 async function run() {
+  const url = 'mongodb+srv://ppqita:santri@ppqitadb.dada60q.mongodb.net/';
+  const {collection, client} = await connectionDB(url, 'testing','users')
 
-    const url = 'mongodb+srv://ppqita:santri@ppqitadb.dada60q.mongodb.net/'
-    const client = new MongoClient(url);
-    await client.connect();
-    const dbName = 'testing';
-    const collectionName = 'users';
-    const database = client.db(dbName);
-    const collection = database.collection(collectionName);
-
-    // await insertMany(collection);
-    // await insertOne(collection);
-
-    // const dataRes = await findMany(collection);
-    // console.log(dataRes)
-
-
-    // TEST
-    let dataRes = await findMany(collection);
-    // console.log('dataRes:', dataRes);
-
-    for (const data of dataRes) {
-      await deleteById(collection, data.id);
-    }
-
-    let dataRes2 = await findMany(collection);
-    // console.log('dataRes2:', dataRes2);
+    await cleanDB(collection);
 
     let myData = [  
       {
@@ -53,11 +31,34 @@ async function run() {
   let dataRes3 = await insertMany(collection,myData);
   // let dataRes4 = await updateById(collection,2,{name:"orang"});
   // let dataRes5 = await deleteById(collection,3);
-  let dataRes6 = await isIdExist(collection,1);
+  let dataRes6 = await isIdExist(collection,10);
   console.log(dataRes6)
 
   await client.close();
+}
 
+const cleanDB = async (collection) => {
+  try {
+    let dataRes = await findMany(collection);
+
+    for (const data of dataRes) {
+      await deleteById(collection, data.id);
+    }
+  } catch (err) {
+    console.log('Error clean DB: ', err)
+  }
+}
+
+const connectionDB = async (url,dbName,collectionName) => {
+  try {
+    const client = new MongoClient(url);
+    await client.connect();
+    const database = client.db(dbName);
+    const collection = database.collection(collectionName)
+    return {collection, client}
+  } catch (err) {
+    console.log('Error connection DB: ', err)
+  }
 }
 
 run().catch(console.dir);
