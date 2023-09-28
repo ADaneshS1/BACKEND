@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 const { insertMany, insertOne } = require('./operations/ExampleInsert');
-const { findMany, findOne, findOneById, findOneWithQuerySpecific } = require('./operations/ExampleFind');
+const { findMany, findOne, findOneById, findOneWithQuerySpecific,isIdExist } = require('./operations/ExampleFind');
 const { deleteById } = require('./operations/ExampleDelete');
 const { updateById } = require('./operations/ExampleUpdate');
 async function run() {
@@ -32,7 +32,7 @@ async function run() {
     let dataRes2 = await findMany(collection);
     // console.log('dataRes2:', dataRes2);
 
-    let myData = [
+    let myData = [  
       {
           id: 1,
           name: 'ahmad',
@@ -51,9 +51,9 @@ async function run() {
   ]
 
   let dataRes3 = await insertMany(collection,myData);
-  let dataRes4 = await updateById(collection,2,{name:"orang"});
-  let dataRes5 = await deleteById(collection,3);
-  let dataRes6 = await findMany(collection);
+  // let dataRes4 = await updateById(collection,2,{name:"orang"});
+  // let dataRes5 = await deleteById(collection,3);
+  let dataRes6 = await isIdExist(collection,1);
   console.log(dataRes6)
 
   await client.close();

@@ -35,6 +35,21 @@ const findOneWithQuerySpecific = async (collection) => {
     }
 }
 
+const isIdExist = async (collection, id) => {
+    try {
+        const dataRes = await collection.findOne({id});//id:id. 
+        // if(dataRes) {
+        //    hasil = true;
+        // } else {
+        //     hasil = false;
+        // }
+        // return hasil;
+        return !!dataRes;
+    } catch(err) {
+        console.error('There is error: ', err);
+    }
+}
 
 
-module.exports = {findMany,findOne,findOneById,findOneWithQuerySpecific}
+
+module.exports = {findMany,findOne,findOneById,findOneWithQuerySpecific, isIdExist}
