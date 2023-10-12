@@ -1,9 +1,9 @@
 const { MongoClient } = require('mongodb');
 
-const { insertMany, insertOne } = require('./operations/ExampleInsert');
-const { findMany, findOne, findOneById, findOneWithQuerySpecific,isIdExist } = require('./operations/ExampleFind');
-const { deleteById } = require('./operations/ExampleDelete');
-const { updateById } = require('./operations/ExampleUpdate');
+const { insertMany, insertOne } = require('./mongodb/operations/ExampleInsert');
+const { findMany, findOne, findOneById, findOneWithQuerySpecific,isIdExist } = require('./mongodb/operations/ExampleFind');
+const { deleteById } = require('./mongodb/operations/ExampleDelete');
+const { updateById } = require('./mongodb/operations/ExampleUpdate');
 async function run() {
   const url = 'mongodb+srv://ppqita:santri@ppqitadb.dada60q.mongodb.net/';
   const {collection, client} = await connectionDB(url, 'testing','users')

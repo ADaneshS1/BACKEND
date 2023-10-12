@@ -11,7 +11,7 @@ const connectionDB = async () => {
     const client = new MongoClient(url);
     await client.connect();
     const dbName = 'development';
-    const collectionName = 'users';
+    const collectionName = 'user';
     const database = client.db(dbName);
     collection = database.collection(collectionName)
 }
@@ -42,12 +42,12 @@ const getDataByName = (name) => {
 
 // const editDataName = (id,name) => {
 //     return dataMemory;
-// };
+// };20-
 
 const removeData = async (id) => {
     if (typeof id === 'string') {
         id = parseInt(id)
-    };
+    };  
     await deleteById(collection,id)
     const data = findMany(collection)
     return data

@@ -1,5 +1,5 @@
 const { showAllData, savingData } = require('../gateways/mongodb-gateway');
-const { nameValidation, ageValid } = require('../validation/validation')
+const { nameValidation, ageValid } = require('../validation/validation');
 
 const postDataUserHandler = async (req,res) => {
     console.log(req.body)
@@ -16,7 +16,7 @@ const postDataUserHandler = async (req,res) => {
 
         let {name, age} = req.body;
 
-        // Mengambil data nama
+        // Mengambil data 
         let realNameRes = nameValidation(name);
         let realAgeRes = ageValid(age);
 
@@ -31,7 +31,7 @@ const postDataUserHandler = async (req,res) => {
         };
 
         console.log("Terjadi keselahan: ",realNameRes.data, realAgeRes.data)
-        await savingData(realNameRes.data, realAgeRes.data) // simpan data di memori (memoriGateway)
+        await savingData(realNameRes.data, realAgeRes.data)
         res.send({data: await showAllData()});
     } catch(error) {
         res.send({ error: true, message: error.message });

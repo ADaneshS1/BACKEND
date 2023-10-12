@@ -22,7 +22,7 @@ describe('testing validation', () => {
         );
     });
 
-    test('when input  space should be error', ()=> {
+    test('when input space should be error', ()=> {
         let result = nameValidation("   ");
         expect(result).toEqual(
             {error:true, message:'Nama harus lebih dari 3'}

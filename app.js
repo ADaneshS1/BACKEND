@@ -1,10 +1,10 @@
 const express = require('express');
+const app = express();
 const { postDataUserHandler } = require('./handlres/post-data-user-handler');
 const { getDataUserHandler } = require('./handlres/get-data-user-handler');
 const { putDataUserHandler } = require('./handlres/put-data-user-handler');
 const { delDataUserHandler } = require('./handlres/del-data-user-handler');
 const { connectionDB } = require('./gateways/mongodb-gateway');
-const app = express();
 
 // Example
 /*
@@ -12,9 +12,9 @@ const app = express();
     - res = singkatan dari response. Yang isinya kita kirim ke client. Contoh seperti data, json, html, dan codeHTTP (default:200)
 */
 
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
-// app.use(express.json());
+app.use(express.json());
 connectionDB();
 
 app.get('/api/user', getDataUserHandler);
@@ -32,6 +32,6 @@ const server = app.listen(port, () => {
     console.log("Halo cuyy, Server sudah jalan di http://localhost:" + port)
 });
 
-module.exports = server;
+module.exports = server;    
 
 // Untuk menjalankan ketik node app.js di terminal. Untuk cancel tekan Ctr + c.
