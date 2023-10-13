@@ -18,7 +18,7 @@ app.post('/api/user', (req,res) => {
         return res.status(400).send("Harus ada password")
     }
     
-    let ditemukan = false;t
+    let ditemukan = false;
     index = dataDummy.findIndex((data) => data.username == body.username && data.password === body.password)
     if(index >= 0) {
         const token = Math.ceil(Math.random() * 1000000)
